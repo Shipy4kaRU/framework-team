@@ -1,0 +1,27 @@
+@use '../../variables//colors.scss' as *;
+@use '../../variables/display.scss' as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0;
+  grid-column: 1/-1;
+}
+
+.logo {
+  width: 6.08rem;
+  height: 1.33rem;
+}
+
+.theme {
+  width: 1.7rem;
+  height: 1.91rem;
+}
+
+.button {
+  background-color: $secondary-white;
+  width: 3.33rem;
+  height: 3.33rem;
+  border-radius: 50%;
+}

@@ -1,0 +1,82 @@
+@use './variables/display.scss' as *;
+@use './variables//colors.scss' as *;
+
+:root {
+  line-height: 1.3;
+  box-sizing: border-box;
+  font-size: calc(0.5em + 1vw);
+
+  color-scheme: light dark;
+  background-color: $primary-white;
+  color: $primary-black;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: $mobile-width-only) {
+    font-size: 12px;
+  }
+  @media (min-width: $desktop-width) {
+    font-size: 16px;
+  }
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  display: flex;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  color: $primary-black;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.disabled {
+  cursor: default;
+  opacity: 0.5;
+}

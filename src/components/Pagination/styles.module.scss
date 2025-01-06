@@ -1,0 +1,19 @@
+.pagination {
+  display: flex;
+  grid-column: 1/-1;
+  justify-content: center;
+}
+
+.button + .button {
+  margin-left: 0.3rem;
+}
+
+.page + .page {
+  cursor: pointer;
+  margin-left: 0.4rem;
+}
+
+.active {
+  transform: scale(1.2);
+  color: red;
+}

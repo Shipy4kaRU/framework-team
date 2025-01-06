@@ -1,0 +1,24 @@
+@use '../../../variables//fonts.scss' as *;
+@use '../../../variables//colors.scss' as *;
+
+.description {
+  position: absolute;
+  bottom: 0;
+  width: 84.29%;
+  background-color: white;
+}
+
+.author {
+  margin: 0.67rem 0 0.67rem 12px;
+}
+
+.header {
+  @include heading-font();
+  margin: 0;
+}
+
+.title {
+  @include caption-font(8px);
+  color: $accent-red;
+  margin: 0.33rem 0 0 0;
+}

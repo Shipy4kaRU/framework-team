@@ -4,3 +4,12 @@ $tablet-width-max: 1279.9px;
 $laptop-width: 1280px;
 $laptop-width-max: 1439.9px;
 $desktop-width: 1440px;
+
+@mixin grid-layout($columns, $gap, $margin, $container) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  column-gap: $gap;
+  width: 100%;
+  margin: 0 $margin;
+  max-width: $container;
+}
