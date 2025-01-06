@@ -1,11 +1,13 @@
 import { FC } from 'react';
 import styles from './styles.module.scss';
-import image from '../../../icons/image.png';
+import { baseUrl } from '../../../constants/url';
 
-interface PictureProps {}
+interface PictureProps {
+  pictureLink: string;
+}
 
-const Picture: FC<PictureProps> = ({}) => {
-  return <img src={image} alt="Picture Name" className={styles.picture} />;
+const Picture: FC<PictureProps> = ({ pictureLink }) => {
+  return <img src={`${baseUrl}${pictureLink}`} alt="Picture Name" className={styles.picture} />;
 };
 
 export default Picture;
