@@ -1,0 +1,17 @@
+// FONTS
+$heading-font: 'Cormorant SC', Georgia, serif;
+$paragraph-font: 'Inter', Arial, sans-serif;
+
+@mixin heading-font($font-size: 1rem) {
+  font-family: $heading-font;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: $font-size;
+}
+
+@mixin caption-font($font-size: 12px) {
+  font-family: $paragraph-font;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: $font-size;
+}
