@@ -1,12 +1,18 @@
 import './App.scss';
 import { Header, Search, Card, Pagination } from './constants/components';
-import { useGetPaintingsQuery } from './store/api';
+import { useGetNumberOfPainitngsQuery, useGetPaintingsQuery } from './store/api';
 import { IAnswer, IPaintings } from './interfaces/interfaces';
-import { useEffect } from 'react';
+import { useState } from 'react';
 
 function App() {
-  const { data = [], isLoading, isError } = useGetPaintingsQuery<IAnswer>('');
+  const [page, setPage] = useState<number>(1);
+  const { data: numberOfPaintings } = useGetNumberOfPainitngsQuery<IAnswer<number>>({});
+  const { data = [], isLoading, isError } = useGetPaintingsQuery<IAnswer<IPaintings[]>>({ page, title: '' });
   console.log(data);
+
+  const setPageHandler = (page: number) => {
+    setPage(page);
+  };
 
   return (
     <>
@@ -14,7 +20,7 @@ function App() {
       <Header />
       <Search />
       <Card data={data} />
-      <Pagination totalPages={data.length} />
+      <Pagination totalPages={Math.ceil(numberOfPaintings / 6)} setPage={setPageHandler} />
     </>
   );
 }

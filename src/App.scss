@@ -2,13 +2,16 @@
 
 #root {
   width: 100%;
-  grid-auto-rows: auto;
-  row-gap: 1.67rem;
+  grid-template-rows: auto auto repeat(6, 1fr) auto;
+  row-gap: 1.66rem;
   @include grid-layout(6, 0.41rem, 1.67rem, auto);
   @media (min-width: $tablet-width) {
     @include grid-layout(8, 1.5rem, 1.25rem, auto);
+    grid-template-rows: auto auto 1fr 1fr auto;
+    row-gap: 1.54rem;
   }
   @media (min-width: $laptop-width) {
+    row-gap: 1.67rem;
     @include grid-layout(12, 2rem, auto, 1240px);
   }
 }

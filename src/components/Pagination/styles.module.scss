@@ -5,23 +5,35 @@
   display: flex;
   grid-column: 1/-1;
   justify-content: center;
-  margin-bottom: 80px;
+  margin: 1rem 0 80px 0;
+  grid-row: -1/-2;
   @media (min-width: $tablet-width) {
-    margin-bottom: 100px;
+    margin: 1rem 0 100px 0;
+    grid-row: -1/-1;
+  }
+  @media (min-width: $desktop-width) {
+    margin: -1rem 0 100px 0;
   }
 }
 
 .page {
-  width: 2.33rem;
+  width: 2.17rem;
   height: 2rem;
+  font-size: 1.4rem;
   color: $primary-dark-gray;
+  vertical-align: bottom;
   transition:
     border-radius 0.15s,
     background-color 0.15s;
+  @media (min-width: $tablet-width) {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1rem;
+  }
 }
 
-.page + .page {
-  margin-left: 0.33rem;
+.page:not(:last-child) {
+  margin-right: 0.33rem;
 }
 
 .active {
@@ -36,7 +48,24 @@
   color: $primary-dark-gray;
 }
 
+.prev {
+  margin-right: 1.85rem;
+  @media (min-width: $tablet-width) {
+    margin-right: 1.37rem;
+  }
+  @media (min-width: $desktop-width) {
+    margin-right: 1.28rem;
+  }
+}
+
 .next {
+  margin-left: 1.85rem;
   transform: rotate(180deg);
   transform-origin: center center;
+  @media (min-width: $tablet-width) {
+    margin-left: 1.37rem;
+  }
+  @media (min-width: $desktop-width) {
+    margin-left: 1.28rem;
+  }
 }

@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { BASE_URL } from '../constants/BASE_URL';
-import { checkImageAvailability } from '../helpers/checkImages';
 import { IPaintings } from '../interfaces/interfaces';
 
 export const api = createApi({
@@ -10,21 +9,13 @@ export const api = createApi({
   }),
   endpoints: (build) => ({
     getPaintings: build.query({
-      query: (title: string) => `/paintings?q=${title}`, //&_limit=6
-      transformResponse: async (response: IPaintings[]) => {
-        console.log('Original Response:', response);
-        const images = await Promise.all(
-          response.map(async (painting: IPaintings) => {
-            const isValidImage: boolean = await checkImageAvailability(`${BASE_URL}${painting.imageUrl}`);
-            return { ...painting, isValidImage };
-          })
-        );
-        console.log(`Validate Images:`, images);
-        const filteredImages = images.filter((painting) => painting.isValidImage);
-        return filteredImages;
-      },
+      query: (arg: { page: number; title: string }) => `/paintings?q=${arg.title}&_page=${arg.page}&_limit=6`,
+    }),
+    getNumberOfPainitngs: build.query({
+      query: () => `/paintings`,
+      transformResponse: (response: IPaintings[]) => response.length,
     }),
   }),
 });
 
-export const { useGetPaintingsQuery } = api;
+export const { useGetPaintingsQuery, useGetNumberOfPainitngsQuery } = api;

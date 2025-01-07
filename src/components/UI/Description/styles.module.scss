@@ -1,15 +1,30 @@
 @use '../../../variables//fonts.scss' as *;
 @use '../../../variables//colors.scss' as *;
+@use '../../../variables//display.scss' as *;
 
 .description {
   position: absolute;
   bottom: 0;
   width: 84.29%;
   background-color: white;
+  @media (min-width: $tablet-width) {
+    width: 85%;
+    padding-top: 0.35rem;
+  }
+  @media (min-width: $desktop-width) {
+    width: 76.5%;
+    padding-top: 0.7rem;
+  }
 }
 
 .author {
   margin: 0.67rem 0 0.67rem 12px;
+  @media (min-width: $tablet-width) {
+    margin: 0.5rem 0 0.67rem 12px;
+  }
+  @media (min-width: $desktop-width) {
+    margin: 0.5rem 0 0.67rem 19px;
+  }
 }
 
 .header {
@@ -21,4 +36,11 @@
   @include caption-font(8px);
   color: $accent-red;
   margin: 0.33rem 0 0 0;
+  @media (min-width: $tablet-width) {
+    @include caption-font(12px);
+    margin: 0.4rem 0 0.1rem 0;
+  }
+  @media (min-width: $desktop-width) {
+    margin: 0.4rem 0 1.32rem 0;
+  }
 }

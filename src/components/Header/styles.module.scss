@@ -5,23 +5,56 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 2rem 0;
+  margin: 2.4rem 0 1.3rem 0;
   grid-column: 1/-1;
+  @media (min-width: $tablet-width) {
+    margin: 1.62rem 0 0.14rem 0;
+  }
+  @media (min-width: $desktop-width) {
+    margin: 1.28rem 0 0.14rem 0;
+  }
 }
 
 .logo {
   width: 6.08rem;
-  height: 1.33rem;
+  height: 1.6rem;
+  @media (min-width: $desktop-width) {
+    height: 1.25rem;
+    width: 5.67rem;
+    margin-left: 0.76rem;
+    transform: scale(1.26);
+  }
 }
 
 .theme {
   width: 1.7rem;
   height: 1.91rem;
+  @media (min-width: $tablet-width) {
+    position: absolute;
+    top: 24%;
+    right: 20%;
+    height: 2.1rem;
+  }
 }
 
 .button {
+  position: relative;
   background-color: $secondary-white;
   width: 3.33rem;
   height: 3.33rem;
   border-radius: 50%;
+  @media (min-width: $tablet-width) {
+    bottom: 0.36rem;
+    left: 0.3rem;
+  }
 }
+
+// .button::after {
+//   content: '';
+//   display: block;
+//   position: absolute;
+//   background-color: red;
+//   width: 3.33rem;
+//   height: 3.33rem;
+//   border-radius: 50%;
+// }

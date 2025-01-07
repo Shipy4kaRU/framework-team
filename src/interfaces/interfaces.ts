@@ -1,5 +1,5 @@
-export interface IAnswer {
-  data: IPaintings[];
+export interface IAnswer<T> {
+  data: T;
   isError: boolean;
   isFetching: boolean;
   isLoading: boolean;
