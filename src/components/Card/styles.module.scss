@@ -4,6 +4,7 @@
   position: relative;
   grid-column: 1/-1;
   height: 15.42rem;
+  overflow: hidden;
   @media (min-width: $tablet-width) {
     height: 14.05rem;
     grid-column: span 4;

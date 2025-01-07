@@ -15,3 +15,18 @@ export interface IPaintings {
   name: string;
   isValidImage: boolean;
 }
+
+export interface IAuthors {
+  id: number;
+  name: string;
+}
+
+export interface ILocations {
+  id: number;
+  location: string;
+}
+
+export interface IPaintsData {
+  authors: IAuthors[];
+  locations: ILocations[];
+}

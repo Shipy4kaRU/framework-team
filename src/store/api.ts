@@ -15,7 +15,13 @@ export const api = createApi({
       query: () => `/paintings`,
       transformResponse: (response: IPaintings[]) => response.length,
     }),
+    getLocations: build.query({
+      query: () => `/locations`,
+    }),
+    getAuthors: build.query({
+      query: () => `/authors`,
+    }),
   }),
 });
 
-export const { useGetPaintingsQuery, useGetNumberOfPainitngsQuery } = api;
+export const { useGetPaintingsQuery, useGetNumberOfPainitngsQuery, useGetAuthorsQuery, useGetLocationsQuery } = api;

@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { ChangeEvent, FC, useState } from 'react';
 import styles from './styles.module.scss';
 import { setDebounce } from '../../helpers/setDebounce';
 
@@ -18,7 +18,7 @@ const Serach: FC<SerachProps> = ({}) => {
         className={styles.search}
         placeholder="Painting title"
         value={title}
-        onChange={(e) => {
+        onChange={(e: ChangeEvent<HTMLInputElement>) => {
           setTitle(e.target.value);
         }}
       />
