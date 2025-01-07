@@ -8,8 +8,9 @@ import { useAppDispatch } from './store/hooks';
 
 function App() {
   const [page, setPage] = useState<number>(1);
-  const { data: numberOfPaintings } = useGetNumberOfPainitngsQuery<IAnswer<number>>({});
-  const { data = [], isLoading, isError } = useGetPaintingsQuery<IAnswer<IPaintings[]>>({ page, title: '' });
+  const [title, setTitle] = useState<string>('');
+  const { data: numberOfPaintings } = useGetNumberOfPainitngsQuery<IAnswer<number>>(title);
+  const { data = [], isLoading, isError } = useGetPaintingsQuery<IAnswer<IPaintings[]>>({ page, title });
   const { data: authors } = useGetAuthorsQuery<IAnswer<IAuthors[]>>({});
   const { data: locations } = useGetLocationsQuery<IAnswer<ILocations[]>>({});
   const dispatch = useAppDispatch();
@@ -23,11 +24,15 @@ function App() {
     setPage(page);
   };
 
+  const searchHandler = (title: string) => {
+    setTitle(title);
+  };
+
   return (
     <>
       <h1 className="visually-hidden">Картинная галерея</h1>
       <Header />
-      <Search />
+      <Search onSearch={searchHandler} />
       {data.map((picture, index) => (
         <Card key={index} picture={picture} />
       ))}

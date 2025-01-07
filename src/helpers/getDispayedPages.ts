@@ -2,9 +2,9 @@ export const getDisplayedPages = (currentPage: number, totalPages: number) => {
   const displayedPages = [];
   displayedPages.push(1);
 
-  if (currentPage === 1) {
+  if (currentPage === 1 && totalPages >= 3) {
     return [1, 2, 3, totalPages];
-  } else if (currentPage == totalPages) return [1, totalPages - 2, totalPages - 1, totalPages];
+  } else if (currentPage === totalPages && totalPages > currentPage) return [1, totalPages - 2, totalPages - 1, totalPages];
 
   if (currentPage > 1) {
     displayedPages.push(currentPage - 1);

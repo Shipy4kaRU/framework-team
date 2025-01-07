@@ -32,7 +32,6 @@
 
 .text {
   margin: 0.67rem 0 0.67rem 12px;
-  transition: all 0.3s;
   position: absolute;
   @media (min-width: $tablet-width) {
     margin: 0.5rem 0 0.67rem 12px;
@@ -50,6 +49,7 @@
 .title {
   @include caption-font(8px);
   color: $accent-red;
+  padding-right: 0.3rem;
   margin: 0.33rem 0 0 0;
   @media (min-width: $tablet-width) {
     @include caption-font(12px);
@@ -97,17 +97,17 @@
 }
 
 .flyBottom {
-  animation: flyBottom 0.5s forwards;
+  animation: flyBottom 0.4s forwards;
 }
 
 .flyRight {
-  animation: flyRight 0.5s forwards;
+  animation: flyRight 0.4s forwards;
 }
 
 .flyUp {
-  animation: flyUp 0.5s forwards;
+  animation: flyUp 0.4s forwards;
 }
 
 .flyLeft {
-  animation: flyLeft 0.5s forwards;
+  animation: flyLeft 0.4s forwards;
 }

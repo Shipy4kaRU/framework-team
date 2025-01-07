@@ -2,13 +2,17 @@ import { ChangeEvent, FC, useState } from 'react';
 import styles from './styles.module.scss';
 import { setDebounce } from '../../helpers/setDebounce';
 
-interface SerachProps {}
+interface SerachProps {
+  onSearch: (str: string) => void;
+}
 
-const Serach: FC<SerachProps> = ({}) => {
+const Serach: FC<SerachProps> = ({ onSearch }) => {
   const [title, setTitle] = useState<string>('');
 
-  const sendTitle = (title: string) => {
-    setDebounce(title, 1000);
+  const sendTitle = (text: string) => {
+    setTitle(text);
+    setDebounce(text, 1000);
+    onSearch(text);
   };
 
   return (
@@ -19,7 +23,7 @@ const Serach: FC<SerachProps> = ({}) => {
         placeholder="Painting title"
         value={title}
         onChange={(e: ChangeEvent<HTMLInputElement>) => {
-          setTitle(e.target.value);
+          sendTitle(e.target.value);
         }}
       />
     </div>

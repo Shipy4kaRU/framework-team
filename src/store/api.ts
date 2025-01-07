@@ -12,7 +12,7 @@ export const api = createApi({
       query: (arg: { page: number; title: string }) => `/paintings?q=${arg.title}&_page=${arg.page}&_limit=6`,
     }),
     getNumberOfPainitngs: build.query({
-      query: () => `/paintings`,
+      query: (title: string) => `/paintings?q=${title}`,
       transformResponse: (response: IPaintings[]) => response.length,
     }),
     getLocations: build.query({
