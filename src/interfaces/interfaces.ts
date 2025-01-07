@@ -13,4 +13,5 @@ export interface IPaintings {
   imageUrl: string;
   locationId: number;
   name: string;
+  isValidImage: boolean;
 }

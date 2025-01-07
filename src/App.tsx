@@ -1,7 +1,8 @@
 import './App.scss';
 import { Header, Search, Card, Pagination } from './constants/components';
 import { useGetPaintingsQuery } from './store/api';
-import { IAnswer } from './interfaces/interfaces';
+import { IAnswer, IPaintings } from './interfaces/interfaces';
+import { useEffect } from 'react';
 
 function App() {
   const { data = [], isLoading, isError } = useGetPaintingsQuery<IAnswer>('');

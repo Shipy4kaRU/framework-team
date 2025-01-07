@@ -3,11 +3,9 @@
 .card {
   position: relative;
   grid-column: 1/-1;
+  height: 15.42rem;
   @media (min-width: $tablet-width) {
     grid-column: span 4;
-  }
-  @media (min-width: $laptop-width) {
-    grid-column: span 3;
   }
 }
 

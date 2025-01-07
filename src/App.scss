@@ -3,6 +3,7 @@
 #root {
   width: 100%;
   grid-auto-rows: auto;
+  row-gap: 1.67rem;
   @include grid-layout(6, 0.41rem, 1.67rem, auto);
   @media (min-width: $tablet-width) {
     @include grid-layout(8, 1.5rem, 1.25rem, auto);
