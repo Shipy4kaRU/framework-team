@@ -1,4 +1,4 @@
-import { FC, useState, Fragment } from 'react';
+import { FC, Fragment } from 'react';
 import styles from './styles.module.scss';
 import { getDisplayedPages } from '../../helpers/getDispayedPages';
 import icons from '../../icons/icons_sprite.svg';
@@ -6,29 +6,15 @@ import { paginationActions } from '../../interfaces/enums';
 
 interface IPaginationProps {
   totalPages: number;
+  currentPage: number;
   setPage: (arg: number) => void;
 }
 
-const Pagination: FC<IPaginationProps> = ({ totalPages, setPage }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-
+const Pagination: FC<IPaginationProps> = ({ totalPages, currentPage, setPage }) => {
   const changePage = (action: paginationActions, num?: number) => {
-    if (action === paginationActions.next) {
-      setCurrentPage((prev) => {
-        const nextPage = prev + 1;
-        setPage(nextPage);
-        return nextPage;
-      });
-    } else if (action === paginationActions.prev) {
-      setCurrentPage((prev) => {
-        const prevPage = prev - 1;
-        setPage(prev);
-        return prevPage;
-      });
-    } else if (action === paginationActions.current && num) {
-      setCurrentPage(num);
-      setPage(num);
-    }
+    if (action === paginationActions.next) setPage(currentPage + 1);
+    else if (action === paginationActions.prev) setPage(currentPage - 1);
+    else if (action === paginationActions.current && num) setPage(num);
   };
 
   const pages = getDisplayedPages(currentPage, totalPages);
@@ -36,19 +22,24 @@ const Pagination: FC<IPaginationProps> = ({ totalPages, setPage }) => {
   return (
     <div className={styles.pagination}>
       <button
-        className={styles.button}
+        className={`${styles.btnPrev} ${styles.btn}`}
         onClick={() => {
           if (currentPage > 1) changePage(paginationActions.prev);
         }}
       >
         <svg className={styles.prev}>
-          <use xlinkHref={`${icons}#arrow`} />
+          <use xlinkHref={`${icons}#prev`} />
         </svg>
       </button>
       {pages.map((page, index) => (
         <Fragment key={page}>
-          {index > 0 && pages[index] - pages[index - 1] > 1 && <span className={styles.page}>...</span>}
+          {index > 0 && pages[index] - pages[index - 1] > 1 && (
+            <button style={{ cursor: 'default', boxShadow: 'none', fontWeight: 300 }} className={styles.page}>
+              ...
+            </button>
+          )}
           <button
+            key={page}
             className={`${styles.page} ${currentPage === page ? styles.active : ''}`}
             onClick={() => changePage(paginationActions.current, page)}
             disabled={currentPage === page}
@@ -58,13 +49,13 @@ const Pagination: FC<IPaginationProps> = ({ totalPages, setPage }) => {
         </Fragment>
       ))}
       <button
-        className={styles.button}
+        className={`${styles.btnNext} ${styles.btn}`}
         onClick={() => {
           if (currentPage < totalPages) changePage(paginationActions.next);
         }}
       >
         <svg className={styles.next}>
-          <use xlinkHref={`${icons}#arrow`} />
+          <use xlinkHref={`${icons}#next`} />
         </svg>
       </button>
     </div>

@@ -1,5 +1,4 @@
-@use '../../variables//colors.scss' as *;
-@use '../../variables//display.scss' as *;
+@use '../../variables/display.scss' as *;
 
 .search-container {
   position: relative;
@@ -28,11 +27,14 @@
   height: 2.75rem;
   letter-spacing: 0.6px;
   margin: 0;
-  padding: 0 10px 0 48px;
+  padding: 0 4em 0 48px;
   font-size: 1rem;
-  background-color: transparent;
-  border: 1px solid $primary-light-gray;
-  color: black;
+  border-radius: 0.3em;
+  background-color: var(--search-fill);
+  transition: background-color 0.7s;
+  font-family: 'Inter', Arial, sans-serif;
+  border: 1px solid var(--stroke-color);
+  color: var(--text-search-color);
   @media (min-width: $tablet-width) {
     height: 2.3rem;
     letter-spacing: -0.5px;
@@ -40,4 +42,28 @@
   @media (min-width: $desktop-width) {
     height: 2.22rem;
   }
+}
+
+.search:active,
+.search:focus {
+  outline: var(--stroke-hover-color);
+  border-color: var(--stroke-hover-color);
+}
+
+.btnDelete {
+  position: absolute;
+  display: block;
+  color: var(--text-search-color);
+  transition: color 0.7s;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-33%);
+  @media (min-width: $tablet-width) {
+    transform: translateY(-25%);
+  }
+}
+
+.delete {
+  width: 1rem;
+  height: 1rem;
 }

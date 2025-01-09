@@ -9,19 +9,13 @@ export const api = createApi({
   }),
   endpoints: (build) => ({
     getPaintings: build.query({
-      query: (arg: { page: number; title: string }) => `/paintings?q=${arg.title}&_page=${arg.page}&_limit=6`,
+      query: (arg: { page: number; title: string }) => `/paintings?q=${arg.title}&_limit=6&_page=${arg.page}`,
     }),
-    getNumberOfPainitngs: build.query({
+    getPagesNumber: build.query({
       query: (title: string) => `/paintings?q=${title}`,
-      transformResponse: (response: IPaintings[]) => response.length,
-    }),
-    getLocations: build.query({
-      query: () => `/locations`,
-    }),
-    getAuthors: build.query({
-      query: () => `/authors`,
+      transformResponse: (response: IPaintings[]) => Math.ceil(response.length / 6),
     }),
   }),
 });
 
-export const { useGetPaintingsQuery, useGetNumberOfPainitngsQuery, useGetAuthorsQuery, useGetLocationsQuery } = api;
+export const { useGetPaintingsQuery, useGetPagesNumberQuery } = api;

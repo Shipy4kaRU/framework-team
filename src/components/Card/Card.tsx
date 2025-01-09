@@ -5,9 +5,11 @@ import { IPaintings } from '../../interfaces/interfaces';
 
 interface CardProps {
   picture: IPaintings;
+  isLoading: boolean;
+  isError: boolean;
 }
 
-const Card: FC<CardProps> = ({ picture }) => {
+const Card: FC<CardProps> = ({ picture, isLoading, isError }) => {
   const [isEnter, setIsEnter] = useState<boolean>(false);
 
   return (

@@ -1,4 +1,3 @@
-@use '../../variables//colors.scss' as *;
 @use '../../variables/display.scss' as *;
 
 .header {
@@ -15,9 +14,17 @@
   }
 }
 
+.link {
+  @media (min-width: $desktop-width) {
+    padding-top: 0.45em;
+  }
+}
+
 .logo {
   width: 6.08rem;
   height: 1.6rem;
+  color: var(--logo-color);
+  transition: color 0.7s;
   @media (min-width: $desktop-width) {
     height: 1.25rem;
     width: 5.67rem;
@@ -29,6 +36,8 @@
 .theme {
   width: 1.7rem;
   height: 1.91rem;
+  color: var(--text-head-color);
+  transition: color 0.7s;
   @media (min-width: $tablet-width) {
     position: absolute;
     top: 24%;
@@ -39,22 +48,17 @@
 
 .button {
   position: relative;
-  background-color: $secondary-white;
+  background-color: var(--theme-back);
   width: 3.33rem;
   height: 3.33rem;
   border-radius: 50%;
+  transition: background-color 0.2s;
   @media (min-width: $tablet-width) {
     bottom: 0.36rem;
     left: 0.3rem;
   }
 }
 
-// .button::after {
-//   content: '';
-//   display: block;
-//   position: absolute;
-//   background-color: red;
-//   width: 3.33rem;
-//   height: 3.33rem;
-//   border-radius: 50%;
-// }
+.button:hover {
+  background-color: var(--theme-hover);
+}

@@ -1,5 +1,5 @@
-@use '../../variables//colors.scss' as *;
-@use '../../variables//display.scss' as *;
+@use '../../variables/display.scss' as *;
+@use '../../variables/fonts.scss' as *;
 
 .pagination {
   display: flex;
@@ -19,12 +19,17 @@
 .page {
   width: 2.17rem;
   height: 2rem;
+  font-family: 'Inter', Arial, sans-serif;
   font-size: 1.4rem;
-  color: $primary-dark-gray;
+  font-weight: 300;
+  text-align: center;
+  color: var(--text-pagination-color);
   vertical-align: bottom;
   transition:
     border-radius 0.15s,
-    background-color 0.15s;
+    background-color 0.15s,
+    border-bottom 0.2s,
+    color 0.7s;
   @media (min-width: $tablet-width) {
     width: 1.5rem;
     height: 1.5rem;
@@ -36,39 +41,52 @@
   margin-right: 0.33rem;
 }
 
-.active {
-  background-color: $primary-light-gray;
+.page:hover {
+  font-weight: 500;
+  box-shadow: 0 1px var(--pagination-text-hover);
+}
+
+.active,
+.active:hover {
+  background-color: var(--pagination-hover);
   border-radius: 4px;
+  font-weight: 500;
+  box-shadow: none;
 }
 
 .prev,
 .next {
-  width: 1rem;
+  width: 0.65rem;
   height: 1rem;
+  margin: 0.8em 0.8em;
   display: flex;
-  color: $primary-dark-gray;
+  color: var(--text-pagination-color);
+  transition: color 0.7s;
+  @media (min-width: $tablet-width) {
+    width: 0.5rem;
+    height: 0.75rem;
+    margin: 0.5em 0.5em;
+  }
 }
 
 .prev {
-  margin-right: 1.85rem;
-  @media (min-width: $tablet-width) {
-    margin-top: 0.4em;
-    margin-right: 1.37rem;
-  }
-  @media (min-width: $desktop-width) {
-    margin-right: 1.28rem;
-  }
 }
 
 .next {
-  margin-left: 1.85rem;
-  transform: rotate(180deg);
-  transform-origin: center center;
+}
+
+.btn {
+  border-radius: 4px;
+  margin: auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   @media (min-width: $tablet-width) {
-    margin-left: 1.37rem;
-    margin-bottom: 0.2em;
+    width: 1.25rem;
+    height: 1.25rem;
   }
-  @media (min-width: $desktop-width) {
-    margin-left: 1.28rem;
-  }
+}
+
+.btn:hover {
+  background-color: var(--pagination-hover);
 }

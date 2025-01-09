@@ -1,18 +1,24 @@
 import { ChangeEvent, FC, useState } from 'react';
 import styles from './styles.module.scss';
-import { setDebounce } from '../../helpers/setDebounce';
+import icons from '../../icons/icons_sprite.svg';
 
 interface SerachProps {
   onSearch: (str: string) => void;
 }
 
+let debounceTimer: ReturnType<typeof setTimeout>;
 const Serach: FC<SerachProps> = ({ onSearch }) => {
   const [title, setTitle] = useState<string>('');
 
-  const sendTitle = (text: string) => {
+  const inputTitle = (text: string) => {
     setTitle(text);
-    setDebounce(text, 1000);
-    onSearch(text);
+
+    if (debounceTimer) {
+      clearTimeout(debounceTimer);
+    }
+    debounceTimer = setTimeout(() => {
+      onSearch(text);
+    }, 1000);
   };
 
   return (
@@ -23,9 +29,21 @@ const Serach: FC<SerachProps> = ({ onSearch }) => {
         placeholder="Painting title"
         value={title}
         onChange={(e: ChangeEvent<HTMLInputElement>) => {
-          sendTitle(e.target.value);
+          inputTitle(e.target.value);
         }}
       />
+      {Boolean(title) && (
+        <button
+          className={styles.btnDelete}
+          onClick={() => {
+            inputTitle('');
+          }}
+        >
+          <svg className={styles.delete}>
+            <use xlinkHref={`${icons}#delete`} />
+          </svg>
+        </button>
+      )}
     </div>
   );
 };

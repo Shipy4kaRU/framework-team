@@ -1,5 +1,4 @@
 @use '../../../variables//fonts.scss' as *;
-@use '../../../variables//colors.scss' as *;
 @use '../../../variables//display.scss' as *;
 
 .description {
@@ -7,7 +6,8 @@
   bottom: 0;
   height: 35%;
   width: 84.29%;
-  background-color: white;
+  background-color: var(--page-color);
+  transition: background-color 0.7s;
   @media (min-width: $tablet-width) {
     width: 85%;
     padding-top: 0.35rem;
@@ -27,7 +27,8 @@
   transform: translateY(-50%);
   height: 42px;
   width: 2px;
-  background-color: $accent-red;
+  background-color: var(--accent-color);
+  transition: background-color 1.3s;
 }
 
 .text {
@@ -44,11 +45,14 @@
 .header {
   @include heading-font();
   margin: 0;
+  color: var(--text-head-color);
+  transition: color 1.3s;
 }
 
 .title {
   @include caption-font(8px);
-  color: $accent-red;
+  color: var(--accent-color);
+  transition: color 1.3s;
   padding-right: 0.3rem;
   margin: 0.33rem 0 0 0;
   @media (min-width: $tablet-width) {
@@ -97,17 +101,17 @@
 }
 
 .flyBottom {
-  animation: flyBottom 0.4s forwards;
+  animation: flyBottom 0.3s forwards ease-in-out;
 }
 
 .flyRight {
-  animation: flyRight 0.4s forwards;
+  animation: flyRight 0.3s forwards ease-in-out;
 }
 
 .flyUp {
-  animation: flyUp 0.4s forwards;
+  animation: flyUp 0.3s forwards ease-in-out;
 }
 
 .flyLeft {
-  animation: flyLeft 0.4s forwards;
+  animation: flyLeft 0.3s forwards ease-in-out;
 }
