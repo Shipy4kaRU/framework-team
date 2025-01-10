@@ -74,6 +74,17 @@
   }
 }
 
+.text2 {
+  position: absolute;
+  top: 0.6rem;
+  @media (min-width: $tablet-width) {
+    top: 0.3rem;
+  }
+  @media (min-width: $desktop-width) {
+    top: 0.5rem;
+  }
+}
+
 @keyframes flyBottom {
   0% {
     transform: translateY(0);
