@@ -10,7 +10,7 @@ let debounceTimer: ReturnType<typeof setTimeout>;
 const Serach: FC<SerachProps> = ({ onSearch }) => {
   const [title, setTitle] = useState<string>('');
 
-  const inputTitle = (text: string) => {
+  const inputTitle = (text: string): void => {
     setTitle(text);
 
     if (debounceTimer) {

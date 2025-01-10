@@ -1,4 +1,4 @@
-export const getDisplayedPages = (currentPage: number, totalPages: number) => {
+export const getDisplayedPages = (currentPage: number, totalPages: number): number[] => {
   const displayedPages = [];
 
   if (currentPage === 1 && totalPages > 3) {

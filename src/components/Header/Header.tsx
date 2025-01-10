@@ -8,7 +8,7 @@ interface HeaderProps {}
 const Header: FC<HeaderProps> = ({}) => {
   const { theme, setTheme } = useTheme();
 
-  const handleTheme = () => {
+  const handleTheme = (): void => {
     if (theme === 'dark') setTheme('light');
     else setTheme('dark');
   };

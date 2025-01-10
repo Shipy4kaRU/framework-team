@@ -9,7 +9,7 @@ import { useAppDispatch } from './store/hooks';
 import { BASE_URL } from './constants/BASE_URL';
 import axios from 'axios';
 
-function App() {
+function App(): JSX.Element | Element {
   const dispatch = useAppDispatch();
   let [page, setPage] = useState<number>(1);
   const [title, setTitle] = useState<string>('');
@@ -24,7 +24,7 @@ function App() {
   const { data = [], isLoading, isError } = useGetPaintingsQuery<IAnswer<IPaintings[]>>({ page, title });
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = async (): Promise<void> => {
       try {
         const [authors, locations] = await Promise.all([
           axios.get<IAuthors[]>(`${BASE_URL}/authors`),
