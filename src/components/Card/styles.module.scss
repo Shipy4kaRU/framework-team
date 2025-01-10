@@ -14,3 +14,18 @@
     height: 16.4rem;
   }
 }
+
+@keyframes gradientLoading {
+  0% {
+    background-position: 200% 0%;
+  }
+  100% {
+    background-position: -200% 0%;
+  }
+}
+
+.loading {
+  background: linear-gradient(90deg, var(--loading-1), var(--loading-2), var(--loading-3));
+  background-size: 400% 400%;
+  animation: gradientLoading 3s ease infinite;
+}

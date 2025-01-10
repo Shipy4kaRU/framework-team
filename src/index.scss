@@ -32,6 +32,9 @@ html[data-theme='light'] {
   --text-head-color: #121212;
   --text-search-color: #575757;
   --text-pagination-color: #575757;
+  --loading-1: #e0e0e0;
+  --loading-2: #f0f0f0;
+  --loading-3: #d0d0d0;
 }
 
 html[data-theme='dark'] {
@@ -48,6 +51,9 @@ html[data-theme='dark'] {
   --text-head-color: #dedede;
   --text-search-color: #dedede;
   --text-pagination-color: #dedede;
+  --loading-1: #333;
+  --loading-2: #555;
+  --loading-3: #333;
 }
 
 *,

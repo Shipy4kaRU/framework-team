@@ -6,15 +6,14 @@ import { IPaintings } from '../../interfaces/interfaces';
 interface CardProps {
   picture: IPaintings;
   isLoading: boolean;
-  isError: boolean;
 }
 
-const Card: FC<CardProps> = ({ picture, isLoading, isError }) => {
+const Card: FC<CardProps> = ({ picture, isLoading }) => {
   const [isEnter, setIsEnter] = useState<boolean>(false);
 
   return (
     <div
-      className={styles.card}
+      className={`${styles.card} ${isLoading ? styles.loading : ''}`}
       onMouseEnter={() => {
         setIsEnter(true);
       }}
@@ -22,7 +21,7 @@ const Card: FC<CardProps> = ({ picture, isLoading, isError }) => {
         setIsEnter(false);
       }}
     >
-      <Picture pictureLink={picture.imageUrl} isEnter={isEnter} />
+      <Picture pictureLink={picture.imageUrl} isEnter={isEnter} pictureName={picture.name} />
       <Description
         created={picture.created}
         name={picture.name}

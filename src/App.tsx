@@ -1,5 +1,6 @@
 import './App.scss';
 import { Header, Search, Card, Pagination, ItemsList } from './constants/components';
+import { cardsPlaceholder } from './constants/cardsPlaceholder';
 import { useGetPagesNumberQuery, useGetPaintingsQuery } from './store/api';
 import { IAnswer, IPaintings, ILocations, IAuthors } from './interfaces/interfaces';
 import { useState, useEffect } from 'react';
@@ -13,9 +14,13 @@ function App() {
   let [page, setPage] = useState<number>(1);
   const [title, setTitle] = useState<string>('');
   const { data: pagesNumber } = useGetPagesNumberQuery<IAnswer<number>>(title);
-  if (pagesNumber < page) {
-    page = pagesNumber;
-  }
+
+  useEffect(() => {
+    if (pagesNumber && pagesNumber < page) {
+      setPage(pagesNumber);
+    }
+  }, [pagesNumber, page]);
+
   const { data = [], isLoading, isError } = useGetPaintingsQuery<IAnswer<IPaintings[]>>({ page, title });
 
   useEffect(() => {
@@ -45,10 +50,8 @@ function App() {
       <Header />
       <Search onSearch={(title: string) => setTitle(title)} />
       <ItemsList
-        items={data}
-        renderItem={(picture: IPaintings, index: number) => (
-          <Card key={index} picture={picture} isLoading={isLoading} isError={isError} />
-        )}
+        items={isLoading ? cardsPlaceholder : data}
+        renderItem={(picture: IPaintings, index: number) => <Card key={index} picture={picture} isLoading={isLoading} />}
       />
       {Boolean(pagesNumber) && (
         <Pagination totalPages={pagesNumber} currentPage={page} setPage={(page: number) => setPage(page)} />
