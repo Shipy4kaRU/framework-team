@@ -17,6 +17,8 @@
 }
 
 .loading-error {
+  color: var(--text-head-color);
+  transition: color 0.7s;
   margin: 3rem auto 0;
   text-align: center;
   font-size: 1.3rem;
