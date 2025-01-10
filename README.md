@@ -1,50 +1,48 @@
-# React + TypeScript + Vite
+<div style="text-align: center;">
+  <h1>Framework Team Test Task</h1> 
+  <h2>React + TypeScript + Vite</h2>
+  <h3>Выполнены все условия и реализована pixelPerfect верстка.</h3>
+</div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h4 style="text-align: center;">320px</h4>
+<h5>320px Top:</h5>
 
-Currently, two official plugins are available:
+![320px Top Design](./screenshots/320%20top.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<h5>320px Top Part:</h5>
 
-## Expanding the ESLint configuration
+![320px Top Part Design](./screenshots/320%20top%20part.png)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+<h5>320px Center:</h5>
 
-- Configure the top-level `parserOptions` property like this:
+![320px Center Design](./screenshots/320%20center.png)
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+<h5>320px Bottom:</h5>
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+![320px Bottom Design](./screenshots/320%20bottom.png)
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+<h4 style="text-align: center;">768px</h4>
+<h5>768px Top:</h5>
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+![768px Top Design](./screenshots/768%20top.png)
+
+<h5>768px Top Part:</h5>
+
+![768px Top Part Design](./screenshots/768%20top%20part.png)
+
+<h5>768px Bottom:</h5>
+
+![768px Bottom Design](./screenshots/768%20bottom.png)
+
+<h4 style="text-align: center;">1440px</h4>
+<h5>1440px Top:</h5>
+
+![1440px Top Design](./screenshots/1440%20top.png)
+
+<h5>1440px Top Part:</h5>
+
+![1440px Top Design](./screenshots/1440%20top%20part.png)
+
+<h5>1440px Bottom:</h5>
+
+![1440px Bottom Design](./screenshots/1440%20bottom.png)
