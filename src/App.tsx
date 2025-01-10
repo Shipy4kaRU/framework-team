@@ -9,7 +9,7 @@ import { useAppDispatch } from './store/hooks';
 import { BASE_URL } from './constants/BASE_URL';
 import axios from 'axios';
 
-function App(): JSX.Element | Element {
+function App(): React.ReactNode {
   const dispatch = useAppDispatch();
   let [page, setPage] = useState<number>(1);
   const [title, setTitle] = useState<string>('');
