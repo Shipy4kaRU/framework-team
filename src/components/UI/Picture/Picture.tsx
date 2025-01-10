@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState, useEffect } from 'react';
 import styles from './styles.module.scss';
 import { BASE_URL } from '../../../constants/BASE_URL';
 
