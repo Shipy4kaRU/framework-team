@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from 'react';
+import { FC } from 'react';
 import styles from './styles.module.scss';
 import { BASE_URL } from '../../../constants/BASE_URL';
 
@@ -12,7 +12,7 @@ const Picture: FC<PictureProps> = ({ pictureLink, isEnter, pictureName }) => {
   return (
     <img
       src={`${BASE_URL}${pictureLink}`}
-      alt={`Picture is ${pictureName}`}
+      alt={`${pictureName} picture`}
       className={`${styles.picture} ${isEnter ? styles.scale : ''}`}
     />
   );

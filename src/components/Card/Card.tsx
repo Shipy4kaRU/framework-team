@@ -6,9 +6,10 @@ import { IPaintings } from '../../interfaces/interfaces';
 interface CardProps {
   picture: IPaintings;
   isLoading: boolean;
+  isError: boolean;
 }
 
-const Card: FC<CardProps> = ({ picture, isLoading }) => {
+const Card: FC<CardProps> = ({ picture, isLoading, isError }) => {
   const [isEnter, setIsEnter] = useState<boolean>(false);
 
   return (
@@ -21,10 +22,10 @@ const Card: FC<CardProps> = ({ picture, isLoading }) => {
         setIsEnter(false);
       }}
     >
-      <Picture pictureLink={picture.imageUrl} isEnter={isEnter} pictureName={picture.name} />
+      <Picture pictureLink={picture.imageUrl} isEnter={isEnter} pictureName={isError ? 'Error loading' : picture.name} />
       <Description
         created={picture.created}
-        name={picture.name}
+        name={isError ? 'Loading error' : picture.name}
         locationId={picture.locationId}
         authorId={picture.authorId}
         isEnter={isEnter}

@@ -4,7 +4,6 @@ type ThemeTypes = 'light' | 'dark';
 
 const isDarkTheme = window?.matchMedia('(prefers-color-scheme: dark)');
 const defaultTheme = isDarkTheme ? 'dark' : 'light';
-console.log(defaultTheme);
 
 export const useTheme = () => {
   const [theme, setTheme] = useState<ThemeTypes>(() => {

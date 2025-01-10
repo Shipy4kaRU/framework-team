@@ -50,8 +50,10 @@ function App() {
       <Header />
       <Search onSearch={(title: string) => setTitle(title)} />
       <ItemsList
-        items={isLoading ? cardsPlaceholder : data}
-        renderItem={(picture: IPaintings, index: number) => <Card key={index} picture={picture} isLoading={isLoading} />}
+        items={isLoading || isError ? cardsPlaceholder : data}
+        renderItem={(picture: IPaintings, index: number) => (
+          <Card key={index} picture={picture} isLoading={isLoading} isError={isError} />
+        )}
       />
       {Boolean(pagesNumber) && (
         <Pagination totalPages={pagesNumber} currentPage={page} setPage={(page: number) => setPage(page)} />
