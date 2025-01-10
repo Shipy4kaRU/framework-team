@@ -20,7 +20,7 @@ const Description: FC<DescriptionProps> = ({ created, name, authorId, locationId
         <h2 className={styles.header}>{name}</h2>
         <p className={styles.title}>{created}</p>
       </div>
-      <div className={`${isEnter ? styles.flyRight : styles.flyLeft} ${styles.text}`}>
+      <div className={`${isEnter ? styles.flyRight : styles.flyLeft} ${styles.text} ${styles.text2}`}>
         <p className={styles.header}>{authors.length > 0 && authors.find((author) => author.id === authorId)?.name}</p>
         <p className={styles.title}>
           {locations.length > 0 && locations.find((location) => location.id === locationId)?.location}
