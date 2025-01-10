@@ -5,14 +5,15 @@
   display: flex;
   grid-column: 1/-1;
   justify-content: center;
-  margin: 1rem 0 80px 0;
+  align-items: center;
+  margin: 0.7rem 0 80px 0;
   grid-row: -1/-2;
   @media (min-width: $tablet-width) {
     margin: 1rem 0 100px 0;
     grid-row: -1/-1;
   }
   @media (min-width: $desktop-width) {
-    margin: -1rem 0 100px 0;
+    margin: -0.9rem 0 100px 0;
   }
 }
 
@@ -38,7 +39,13 @@
 }
 
 .page:not(:last-child) {
-  margin-right: 0.33rem;
+  margin-right: 0.3rem;
+  @media (min-width: $tablet-width) {
+    margin-right: 0.4rem;
+  }
+  @media (min-width: $desktop-width) {
+    margin-right: 0.37rem;
+  }
 }
 
 .page:hover {
@@ -89,4 +96,24 @@
 
 .btn:hover {
   background-color: var(--pagination-hover);
+}
+
+.btnPrev {
+  margin-right: 1.2rem;
+  @media (min-width: $tablet-width) {
+    margin-right: 1.3rem;
+  }
+  @media (min-width: $desktop-width) {
+    margin-right: 1.1rem;
+  }
+}
+
+.btnNext {
+  margin-left: 1.2rem;
+  @media (min-width: $tablet-width) {
+    margin-left: 1.3rem;
+  }
+  @media (min-width: $desktop-width) {
+    margin-left: 1.1rem;
+  }
 }
