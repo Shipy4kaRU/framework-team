@@ -11,6 +11,7 @@ interface CardProps {
 
 const Card: FC<CardProps> = ({ picture, isLoading, isError }) => {
   const [isEnter, setIsEnter] = useState<boolean>(false);
+  console.log(isLoading);
 
   return (
     <div
@@ -22,7 +23,9 @@ const Card: FC<CardProps> = ({ picture, isLoading, isError }) => {
         setIsEnter(false);
       }}
     >
-      <Picture pictureLink={picture.imageUrl} isEnter={isEnter} pictureName={isError ? 'Error loading' : picture.name} />
+      {!isLoading && (
+        <Picture pictureLink={picture.imageUrl} isEnter={isEnter} pictureName={isError ? 'Error loading' : picture.name} />
+      )}
       <Description
         created={picture.created}
         name={isError ? 'Loading error' : picture.name}
