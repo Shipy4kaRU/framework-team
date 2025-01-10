@@ -12,13 +12,13 @@ interface IPaginationProps {
 
 const Pagination: FC<IPaginationProps> = ({ totalPages, currentPage, setPage }) => {
   const changePage = (action: paginationActions, num?: number): void => {
-    if (action === paginationActions.next) setPage(currentPage + 1);
-    else if (action === paginationActions.prev) setPage(currentPage - 1);
-    else if (action === paginationActions.current && num) setPage(num);
     window.scroll({
       top: 0,
       behavior: 'smooth',
     });
+    if (action === paginationActions.next) setPage(currentPage + 1);
+    else if (action === paginationActions.prev) setPage(currentPage - 1);
+    else if (action === paginationActions.current && num) setPage(num);
   };
 
   const pages = getDisplayedPages(currentPage, totalPages);
