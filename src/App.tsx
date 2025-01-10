@@ -49,6 +49,11 @@ function App(): React.ReactNode {
     <>
       <Header />
       <Search onSearch={(title: string) => setTitle(title)} />
+      {!isLoading && !isError && data.length === 0 && (
+        <p className="loading-error">
+          Oops, it looks like we couldn't find any paintings matching that. Please try another search.
+        </p>
+      )}
       <ItemsList
         items={isLoading || isError ? cardsPlaceholder : data}
         renderItem={(picture: IPaintings, index: number) => (
