@@ -26,8 +26,11 @@ const Header: FC<HeaderProps> = ({}) => {
           handleTheme();
         }}
       >
-        <svg className={styles.theme}>
-          <use xlinkHref={`${icons}#moon`} />
+        <svg
+          className={styles.theme}
+          style={{ marginTop: theme === 'dark' ? '.2em' : '', transform: theme === 'dark' ? 'scale(1.1)' : '' }}
+        >
+          <use xlinkHref={`${theme === 'light' ? icons + '#moon' : icons + '#sun'}`} />
         </svg>
       </button>
     </header>
