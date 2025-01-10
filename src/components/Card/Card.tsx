@@ -11,7 +11,6 @@ interface CardProps {
 
 const Card: FC<CardProps> = ({ picture, isLoading, isError }) => {
   const [isEnter, setIsEnter] = useState<boolean>(false);
-  console.log(isLoading);
 
   return (
     <div

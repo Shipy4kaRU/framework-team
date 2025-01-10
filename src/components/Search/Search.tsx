@@ -23,6 +23,9 @@ const Serach: FC<SerachProps> = ({ onSearch }) => {
 
   return (
     <div className={styles['search-container']}>
+      <svg className={styles.searchIcon}>
+        <use xlinkHref={`${icons}#search`} />
+      </svg>
       <input
         type="text"
         className={styles.search}
