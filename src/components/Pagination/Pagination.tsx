@@ -1,4 +1,4 @@
-import { FC, Fragment } from 'react';
+import { FC, Fragment, useEffect } from 'react';
 import styles from './styles.module.scss';
 import { getDisplayedPages } from '../../helpers/getDispayedPages';
 import icons from '../../icons/icons_sprite.svg';
@@ -12,14 +12,17 @@ interface IPaginationProps {
 
 const Pagination: FC<IPaginationProps> = ({ totalPages, currentPage, setPage }) => {
   const changePage = (action: paginationActions, num?: number): void => {
-    window.scroll({
-      top: 0,
-      behavior: 'smooth',
-    });
     if (action === paginationActions.next) setPage(currentPage + 1);
     else if (action === paginationActions.prev) setPage(currentPage - 1);
     else if (action === paginationActions.current && num) setPage(num);
   };
+
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }, [currentPage]);
 
   const pages = getDisplayedPages(currentPage, totalPages);
 
